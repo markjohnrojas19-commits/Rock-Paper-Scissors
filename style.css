@@ -1,0 +1,4 @@
+.containerOfImages {
+  display: flex;
+  gap: 20px;
+}

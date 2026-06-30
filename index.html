@@ -4,8 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="javascript.js" defer></script>
   </head>
   <body>
+    <div>
+      <h4>Computer: <span id="humanScore">0</span></h4>
+      <h4>Player 1: <span id="computerScore">0</span></h4>
+    </div>
+
+    <div class="containerOfImages">
+      <img
+        class="player1ChooseShower"
+        src="/images/rock_11888286.png"
+        alt="playerChoose"
+        width="90"
+        height="auto"
+        style="transform: scaleX(-1) rotate(-90deg)"
+      />
+
+      <img
+        class="computerChooseShower"
+        src="/images/rock_11888286.png"
+        alt="Rock Hand Gesture"
+        width="90"
+        height="auto"
+        style="transform: rotate(-90deg)"
+      />
+    </div>
+
+    <h4 id="announcer">Choose Your Destiny</h4>
+
+    <div>
+      <span id="rock">rock</span>
+      <span id="paper">paper</span>
+      <span id="scissor">scissor</span>
+    </div>
+
     <script src="/javascript.js"></script>
   </body>
 </html>
