@@ -1,6 +1,6 @@
-const rock = "./images/rock.png";
-const paper = "./images/paper.png";
-const scissors = "./images/scissor.png";
+const rockImg = "./images/rock.png";
+const paperImg = "./images/paper.png";
+const scissorsImg = "./images/scissor.png";
 
 let humanScore = 0;
 let computerScore = 0;
@@ -18,9 +18,9 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-  const humanChoice =
-    prompt();
-    // "Choose among these choices: Rock, Paper and Scissors",
+  // const humanChoice =
+  //   prompt();
+  // "Choose among these choices: Rock, Paper and Scissors",
 
   if (
     humanChoice === "Rock" ||

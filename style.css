@@ -1,4 +1,32 @@
 .containerOfImages {
   display: flex;
-  gap: 20px;
+  gap: 50px;
+}
+
+/* Base style for the image box */
+.player1ChooseShower,
+.computerChooseShower {
+  display: block;
+  object-fit: contain; /* Keeps aspect ratio clean */
+  transition: width 0.1s ease; /* Optional: smooth resizing */
+}
+
+.player1ChooseShower,
+.computerChooseShower {
+  width: 87px;
+  height: auto;
+}
+
+.player1ChooseShower.is-scissors,
+.computerChooseShower.is-scissors {
+  width: 68px;
+  height: auto;
+}
+
+.player1ChooseShower {
+  transform: scaleX(-1) rotate(-90deg);
+}
+
+.computerChooseShower {
+  transform: rotate(-90deg);
 }
