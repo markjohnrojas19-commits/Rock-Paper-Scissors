@@ -80,12 +80,11 @@ body {
 
 #title {
   padding-bottom: 60px;
-  padding-top: 60px;
+  padding-top: 45px;
 }
 
 #contentContainer {
   flex: 1;
-  margin-bottom: 50px;
 }
 
 .footer {
