@@ -9,7 +9,6 @@ let computerScoreDisplay = document.querySelector("#computerScores");
 let computerChoose = document.querySelector(".computerChooseShower");
 let player1Choose = document.querySelector(".player1ChooseShower");
 let announcer = document.querySelector("#announcer");
-
 let humanScore = 0;
 let computerScore = 0;
 

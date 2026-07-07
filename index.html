@@ -8,31 +8,39 @@
     <script src="javascript2.js" defer></script>
   </head>
   <body>
-    <div id="scoresShower">
-      <h4>Computer: <span id="computerScores">0</span></h4>
-      <h4>Player 1: <span id="humanScores">0</span></h4>
-    </div>
+    <h3 id="title">Rock Paper Scissor</h3>
+    <div id="contentContainer">
+      <div id="scoresShower">
+        <h4>Computer: <span id="computerScores">0</span></h4>
+        <h4>Player: <span id="humanScores">0</span></h4>
+      </div>
 
-    <div class="containerOfImages">
-      <img
-        class="player1ChooseShower"
-        src="/images/rock.png"
-        alt="playerChoose"
-      />
+      <div class="containerOfImages">
+        <img
+          class="player1ChooseShower"
+          src="/images/rock.png"
+          alt="playerChoose"
+        />
 
-      <img
-        class="computerChooseShower"
-        src="/images/rock.png"
-        alt="computerChoose"
-      />
-    </div>
+        <img
+          class="computerChooseShower"
+          src="/images/rock.png"
+          alt="computerChoose"
+        />
+      </div>
 
-    <h4 id="announcer">Choose Your Destiny</h4>
+      <div id="operationContainer">
+        <div class="announcer-Container">
+          <h4 id="announcer">Choose Your Destiny</h4>
+        </div>
 
-    <div id="pickingSection">
-      <button id="rock">rock</button>
-      <button id="paper">paper</button>
-      <button id="scissor">scissor</button>
+        <div id="pickingSection">
+          <button id="rock">rock</button>
+          <button id="paper">paper</button>
+          <button id="scissor">scissor</button>
+        </div>
+      </div>
+      <h5 class="footer">Copyright © Mark John Rojas 2026</h5>
     </div>
   </body>
 </html>

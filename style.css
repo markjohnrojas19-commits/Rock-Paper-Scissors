@@ -1,6 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .containerOfImages {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 50px;
+  width: 380px;
+  height: 200px;
 }
 
 /* Base style for the image box */
@@ -9,10 +19,6 @@
   display: block;
   object-fit: contain; /* Keeps aspect ratio clean */
   transition: width 0.1s ease; /* Optional: smooth resizing */
-}
-
-.player1ChooseShower,
-.computerChooseShower {
   width: 87px;
   height: auto;
 }
@@ -29,4 +35,60 @@
 
 .computerChooseShower {
   transform: rotate(-90deg);
+}
+
+body,
+#scoresShower,
+#operationContainer,
+#pickingSection,
+#title {
+  display: flex;
+}
+
+body {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+}
+
+#scoresShower {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+#operationContainer {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+#pickingSection {
+  gap: 26px;
+}
+
+#announcer {
+  display: flex;
+  width: 400px;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+#title {
+  padding-bottom: 60px;
+  padding-top: 60px;
+}
+
+#contentContainer {
+  flex: 1;
+  margin-bottom: 50px;
+}
+
+.footer {
+  padding-top: 120px;
+  text-align: center;
 }
