@@ -8,24 +8,28 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 50px;
-  width: 380px;
-  height: 200px;
+  gap: 100px;
+  width: 440px;
+  height: 185px;
+  margin-bottom: 30px;
 }
 
-/* Base style for the image box */
 .player1ChooseShower,
 .computerChooseShower {
   display: block;
-  object-fit: contain; /* Keeps aspect ratio clean */
-  transition: width 0.1s ease; /* Optional: smooth resizing */
+  object-fit: contain;
+  transition: width 0.1s ease;
   width: 87px;
   height: auto;
+  object-position: center;
+  border-radius: 5px; /* Keeps corners clean inside the border */
+  overflow: hidden; /* FIXED: Clips your oversized hand gestures here instead! */
+  height: 100%; /* Forces image container height */
 }
 
 .player1ChooseShower.is-scissors,
 .computerChooseShower.is-scissors {
-  width: 68px;
+  width: 60px;
   height: auto;
 }
 
@@ -49,14 +53,15 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
+  background: radial-gradient(circle, #5a616a 0%, #2d3135 100%);
+  font-family: "Fredoka";
   min-height: 100vh;
 }
 
 #scoresShower {
   flex-direction: row-reverse;
-  justify-content: space-between;
+  justify-content: space-around;
+  gap: 120px;
 }
 
 #operationContainer {
@@ -76,11 +81,24 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   text-align: center;
+
+  /*added*/
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: black;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
 
 #title {
-  padding-bottom: 60px;
+  padding-bottom: 45px;
   padding-top: 45px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
 
 #contentContainer {
@@ -88,6 +106,208 @@ body {
 }
 
 .footer {
-  padding-top: 120px;
+  padding-top: 70px;
   text-align: center;
 }
+
+.border {
+  width: 250px;
+  height: 140px;
+  border: 3px solid black;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 7px 0px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1;
+}
+
+.border::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
+  filter: blur(2px);
+  background-size: 600%;
+  z-index: -2;
+  border-radius: 8px;
+  opacity: 0;
+
+  animation: glowing 20s linear infinite;
+  transition: opacity 0.3s ease;
+}
+
+.border:hover::before {
+  opacity: 1;
+}
+
+#announcer.player-win {
+  font-weight: 500;
+  color: rgb(116, 199, 116);
+}
+
+#announcer.computer-win {
+  font-weight: 500;
+  color: #b22222;
+}
+
+#scoresShower h4 {
+  font-family: "Fredoka";
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: 0.5px;
+
+  text-shadow:
+    1px 1px 0px #979393,
+    2px 2px 0px rgba(0, 0, 0, 0.15);
+}
+
+#scoresShower span {
+  font-weight: 700;
+  color: #000000;
+  margin-left: 2px;
+}
+
+#pickingSection button {
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border: 3px solid #000000;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #000000;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #000000;
+  transition: all 0.1s ease;
+
+  position: relative;
+  z-index: 1;
+}
+
+/* 1. Rainbow Glow Base layer */
+#pickingSection button::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  /* UPDATED: Pushes the canvas edges out further */
+  top: -4px;
+  left: -4px;
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
+
+  /* UPDATED: Increases the radius of the soft light spread */
+  filter: blur(2px);
+
+  background-size: 600%;
+  z-index: -2;
+  border-radius: 8px;
+  opacity: 0;
+  animation: glowing 20s linear infinite;
+  transition: opacity 0.3s ease;
+}
+
+/* 2. Solid Inner Dark Shield Layer */
+#pickingSection button::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  left: 0;
+  top: 0;
+  border-radius: 8px;
+}
+
+/* --- Interactive Action States --- */
+
+#pickingSection button:hover {
+  background-color: #f0f0f0;
+}
+
+/* HOVER LAYER ACTIVATION: Reveals the animation smoothly on mouse over */
+#pickingSection button:hover::before {
+  opacity: 1;
+}
+
+/* ACTIVE STATE: Triggered on Click (Pushes button down) */
+#pickingSection button:active {
+  transform: translateY(4px);
+  box-shadow: 0 0px 0 #000000;
+  color: #000000;
+  font-weight: bold;
+}
+
+/* ACTIVE STATE INNER: Drops the shield to reveal full internal rainbow burst */
+#pickingSection button:active::after {
+  background: transparent;
+}
+
+/* --- Custom Swirling Glow Keyframes --- */
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/*BACK UP*/
+
+/* #pickingSection button {
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border: 3px solid #000000;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #000000;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #000000;
+  transition: all 0.1s ease;
+  z-index: 0;
+}
+
+
+#pickingSection button:hover {
+  background-color: #f0f0f0;
+}
+
+#pickingSection button:active {
+  transform: translateY(4px);
+  box-shadow: 0 0px 0 #000000;
+} */

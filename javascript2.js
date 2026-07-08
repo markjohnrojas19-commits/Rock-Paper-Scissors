@@ -34,6 +34,7 @@ function handleChoiceSelection() {
     let target = event.target;
 
     if (humanScore === 5 || computerScore === 5) {
+      announcer.className = "";
       humanScore = 0;
       computerScore = 0;
       humanScoreDisplay.textContent = "0";
@@ -114,9 +115,11 @@ function checkWinner() {
 
 function playGround() {
   if (humanScore === 5) {
+    announcer.className = "player-win"; /* Keeps winner green color stable */
     announcer.textContent =
       "You won the game! You reached five rounds first. Click any button to play again!";
   } else if (computerScore === 5) {
+    announcer.className = "computer-win"; /* Keeps loser red color stable */
     announcer.textContent =
       "Computer won the game! Computer reached five rounds first. Click any button to play again!";
   }
