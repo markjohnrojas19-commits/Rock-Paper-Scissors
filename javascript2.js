@@ -29,6 +29,8 @@ function getComputerChoice() {
 
 function handleChoiceSelection() {
   let menu = document.querySelector("#pickingSection");
+  // Grab both white border boxes cleanly
+  let borders = document.querySelectorAll(".border");
 
   menu.addEventListener("click", (event) => {
     let target = event.target;
@@ -50,32 +52,52 @@ function handleChoiceSelection() {
       return;
     }
 
-    switch (target.id) {
-      case "rock":
-        player1Choose.classList.remove("is-scissors");
-        player1Choose.src = IMAGES.rock;
-        getComputerChoice();
-        checkWinner();
-        playGround();
-        console.log("Rock was clicked");
-        break;
-      case "paper":
-        player1Choose.classList.remove("is-scissors");
-        player1Choose.src = IMAGES.paper;
-        getComputerChoice();
-        checkWinner();
-        playGround();
-        console.log("Paper was clicked");
-        break;
-      case "scissor":
-        player1Choose.classList.add("is-scissors");
-        player1Choose.src = IMAGES.scissors;
-        getComputerChoice();
-        checkWinner();
-        playGround();
-        console.log("Scissor was clicked");
-        break;
-    }
+    // A. START THE SHAKING ANIMATION (Triggers instantly on click)
+    announcer.className = "";
+    announcer.textContent = "Rock... Paper... Scissors...";
+
+    player1Choose.classList.remove("is-scissors");
+    computerChoose.classList.remove("is-scissors");
+
+    player1Choose.src = IMAGES.rock;
+    computerChoose.src = IMAGES.rock;
+
+    // Add the shaking animation class to BOTH border boxes
+    borders.forEach((box) => box.classList.add("is-shaking"));
+
+    // B. STOP THE SHAKING AND SHOW CHOICES (Runs after 0.5 seconds)
+    setTimeout(() => {
+      // Turn off the bouncing animation on both boxes cleanly
+      borders.forEach((box) => box.classList.remove("is-shaking"));
+
+      // Runs your exact original unchanged switch logic
+      switch (target.id) {
+        case "rock":
+          player1Choose.classList.remove("is-scissors");
+          player1Choose.src = IMAGES.rock;
+          getComputerChoice();
+          checkWinner();
+          playGround();
+          console.log("Rock was clicked");
+          break;
+        case "paper":
+          player1Choose.classList.remove("is-scissors");
+          player1Choose.src = IMAGES.paper;
+          getComputerChoice();
+          checkWinner();
+          playGround();
+          console.log("Paper was clicked");
+          break;
+        case "scissor":
+          player1Choose.classList.add("is-scissors");
+          player1Choose.src = IMAGES.scissors;
+          getComputerChoice();
+          checkWinner();
+          playGround();
+          console.log("Scissor was clicked");
+          break;
+      }
+    }, 500); // Shakes actively for half a second
   });
 }
 

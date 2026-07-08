@@ -284,30 +284,16 @@ body {
   }
 }
 
-/*BACK UP*/
-
-/* #pickingSection button {
-  font-family: "Fredoka", sans-serif;
-  font-size: 1.05rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  padding: 10px 20px;
-  border: 3px solid #000000;
-  border-radius: 8px;
-  background-color: #ffffff;
-  color: #000000;
-  cursor: pointer;
-  box-shadow: 0 4px 0 #000000;
-  transition: all 0.1s ease;
-  z-index: 0;
+/* --- Up and Down Shaking State for the Border Boxes --- */
+.border.is-shaking {
+  animation: boxBounce 0.12s ease-in-out infinite alternate;
 }
 
-
-#pickingSection button:hover {
-  background-color: #f0f0f0;
+@keyframes boxBounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-15px); /* Physically bounces the boxes up 15px */
+  }
 }
-
-#pickingSection button:active {
-  transform: translateY(4px);
-  box-shadow: 0 0px 0 #000000;
-} */
