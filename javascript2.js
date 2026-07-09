@@ -102,13 +102,14 @@ function handleChoiceSelection() {
 }
 
 function checkWinner() {
+  // FIXED: Check for the clean file strings so the dot-slash (./) doesn't break the system
   if (
-    (player1Choose.src.includes(IMAGES.rock) &&
-      computerChoose.src.includes(IMAGES.rock)) ||
-    (player1Choose.src.includes(IMAGES.paper) &&
-      computerChoose.src.includes(IMAGES.paper)) ||
-    (player1Choose.src.includes(IMAGES.scissors) &&
-      computerChoose.src.includes(IMAGES.scissors))
+    (player1Choose.src.includes("rock.png") &&
+      computerChoose.src.includes("rock.png")) ||
+    (player1Choose.src.includes("paper.png") &&
+      computerChoose.src.includes("paper.png")) ||
+    (player1Choose.src.includes("scissor.png") &&
+      computerChoose.src.includes("scissor.png"))
   ) {
     announcer.textContent = "It's a tie!";
     console.log("It's a tie!");
@@ -116,12 +117,12 @@ function checkWinner() {
   }
 
   if (
-    (player1Choose.src.includes(IMAGES.rock) &&
-      computerChoose.src.includes(IMAGES.scissors)) ||
-    (player1Choose.src.includes(IMAGES.paper) &&
-      computerChoose.src.includes(IMAGES.rock)) ||
-    (player1Choose.src.includes(IMAGES.scissors) &&
-      computerChoose.src.includes(IMAGES.paper))
+    (player1Choose.src.includes("rock.png") &&
+      computerChoose.src.includes("scissor.png")) ||
+    (player1Choose.src.includes("paper.png") &&
+      computerChoose.src.includes("rock.png")) ||
+    (player1Choose.src.includes("scissor.png") &&
+      computerChoose.src.includes("paper.png"))
   ) {
     humanScore++;
     humanScoreDisplay.textContent = humanScore;
